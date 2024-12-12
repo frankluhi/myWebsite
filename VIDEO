@@ -1,0 +1,73 @@
+var all;
+
+whenSetup(function () {
+  makeNewDanceSpriteGroup(20, "ROBOT", "circle");
+  makeNewDanceSprite("ALIEN", '6,NG3$h4CU-pGG:/Jme;', {x: 200, y: 200});
+  setBackgroundEffect("snowflakes", "rave");
+  changeMoveEachLR(sprites, MOVES.Dab, -1);
+});
+
+whenKey("a", function () {
+  doMoveEachLR(sprites, MOVES.Fresh, -1);
+});
+
+whenKey("s", function () {
+  doMoveEachLR(sprites, MOVES.Fresh, 1);
+});
+
+everySeconds(4, "measures", function () {
+  changeMoveEachLR(sprites, "next", -1);
+});
+
+atTimestamp(12, "measures", function () {
+  setBackgroundEffect("diamonds", "rave");
+  makeNewDanceSpriteGroup(16, "DUCK", "inner");
+  setProp('6,NG3$h4CU-pGG:/Jme;', "rotation", 0);
+  changeMoveEachLR(sprites, MOVES.Fresh, -1);
+  layoutSprites("ROBOT", "border");
+});
+
+whenKey("left", function () {
+  doMoveEachLR(sprites, MOVES.Dab, -1);
+});
+
+atTimestamp(16, "measures", function () {
+  setForegroundEffect("spotlight");
+});
+
+atTimestamp(20, "measures", function () {
+  setForegroundEffect("none");
+  setBackgroundEffect("splatter", "rave");
+});
+
+whenKey("right", function () {
+  doMoveEachLR(sprites, MOVES.Dab, 1);
+});
+
+atTimestamp(22, "measures", function () {
+  setForegroundEffect("rain");
+  setBackgroundEffect("rainbow", "rave");
+});
+
+whenKey("down", function () {
+  doMoveEachLR(sprites, MOVES.Drop, -1);
+});
+
+atTimestamp(28, "measures", function () {
+  setBackgroundEffect("spiral", "rave");
+  setForegroundEffect("none");
+  layoutSprites("ROBOT", "circle");
+  layoutSprites("DUCK", "row");
+});
+
+whenKey("space", function () {
+  setForegroundEffect("none");
+});
+
+whenKey("enter", function () {
+  setForegroundEffect("spotlight");
+});
+
+whenKey("up", function () {
+  setBackgroundEffect("splatter", "rave");
+});
